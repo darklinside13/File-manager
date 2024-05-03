@@ -1,0 +1,81 @@
+\hypertarget{_main_window_8hpp_source}{}\doxysection{Main\+Window.\+hpp}
+\label{_main_window_8hpp_source}\index{gui/MainWindow.hpp@{gui/MainWindow.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <imgui.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <imgui-\/SFML.h>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <SFML/System/Clock.hpp>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }fs = std::filesystem;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{enum class} ThemeType}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     LIGHT = 0,}
+\DoxyCodeLine{17     BLACK,}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 \textcolor{keyword}{enum class} ViewType}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     ROW = 0,}
+\DoxyCodeLine{22     BOX,}
+\DoxyCodeLine{23     TREE,}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}}}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{42     \mbox{\hyperlink{class_main_window_a6e81d5c94ce622238e16865cfdd373bf}{MainWindow}}(std::string title = \textcolor{stringliteral}{"{}Example"{}}, ImVec2 size = \{800, 600\});}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47     \mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\string~MainWindow}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_main_window_a61c279af6a12b6cf96ae9ef0682b952d}{mainloop}}();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{private}:}
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} draw();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} drawTree(ImVec2 size);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} drawItems(ImVec2 size);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} drawTitle(ImVec2 size);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} drawRecursiveTree(\textcolor{keyword}{const} fs::path\& currentPath);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{88     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} popupMenu();}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{95     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} SetupImGuiStyle(\textcolor{keywordtype}{bool} bStyleDark\_, \textcolor{keywordtype}{float} alpha\_);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{private}:}
+\DoxyCodeLine{98     sf::RenderWindow* window\_ = \textcolor{keyword}{nullptr}; }
+\DoxyCodeLine{99     sf::Clock deltaClock\_;                }
+\DoxyCodeLine{100     std::string windowTitle\_;             }
+\DoxyCodeLine{101     ImVec2 size\_;                         }
+\DoxyCodeLine{102     \textcolor{keywordtype}{int} titleHeight\_ = 60;                }
+\DoxyCodeLine{103     \textcolor{keywordtype}{int} treeWidth\_ = 300;                 }
+\DoxyCodeLine{104     \textcolor{keywordtype}{int} itemsWidth\_ = 0;                  }
+\DoxyCodeLine{105     ImVec2 boxItemSize = \{40, 40\};        }
+\DoxyCodeLine{106     fs::path currentPath\_ = fs::current\_path(); }
+\DoxyCodeLine{107     fs::path popupMenuPath\_ = \textcolor{stringliteral}{"{}"{}};         }
+\DoxyCodeLine{108     std::vector<std::string> pathTmp\_;    }
+\DoxyCodeLine{109     ViewType viewType\_ = ViewType::ROW;   }
+\DoxyCodeLine{110     \textcolor{keywordtype}{bool} showHidden\_ = \textcolor{keyword}{false};             }
+\DoxyCodeLine{111     \textcolor{keywordtype}{bool} showSettings\_ = \textcolor{keyword}{false};           }
+\DoxyCodeLine{112     ThemeType themeType\_ = ThemeType::BLACK; }
+\DoxyCodeLine{113     fs::path copyFrom\_;                   }
+\DoxyCodeLine{114     \textcolor{keywordtype}{bool} copyFlag\_ = \textcolor{keyword}{false};               }
+\DoxyCodeLine{115     \textcolor{keywordtype}{char} renameBuffer\_[1024] = \textcolor{stringliteral}{"{}"{}};        }
+\DoxyCodeLine{116     \textcolor{keywordtype}{char} openBuffer\_[1024] = \textcolor{stringliteral}{"{}"{}};          }
+\DoxyCodeLine{117     std::vector<fs::path> favourites\_;    }
+\DoxyCodeLine{118 \};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 }
+
+\end{DoxyCode}
