@@ -6,7 +6,7 @@ include_directories(${PROJECT_SOURCE_DIR}/)
 include_directories(${PROJECT_SOURCE_DIR}/imgui/)
 include_directories(${PROJECT_SOURCE_DIR}/gui/)
 
-find_package(SFML COMPONENTS system graphics audio network REQUIRED)
+find_package(SFML COMPONENTS graphics REQUIRED)
 find_package(OpenGL REQUIRED)
 
 FILE(GLOB 
@@ -23,6 +23,6 @@ FILE(
 
 add_executable(${PROJECT_NAME} ${ImGui} ${GUI} main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE sfml-window sfml-network sfml-graphics sfml-system OpenGL::GL)
+target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics OpenGL::GL)
 
-install(FILES ${PROJECT_SOURCE_DIR}/deps/fileExample.txt DESTINATION ${PROJECT_BINARY_DIR}/)
+install(FILES $<TARGET_FILE:sfml-graphics> DESTINATION $<TARGET_FILE_DIR:${PROJECT_NAME}>)
